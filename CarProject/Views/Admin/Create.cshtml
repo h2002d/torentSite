@@ -1,0 +1,18 @@
+﻿@model CarProject.Models.Post
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (@Html.BeginForm("Create", "Admin", FormMethod.Post))
+{
+    <p>PostContent</p>
+    @Html.TextAreaFor(m => m.PostContent);
+    <p>Title</p>
+    @Html.TextBoxFor(m => m.Title);
+    <p>CategoryId</p>
+    @Html.TextBoxFor(m => m.CategoryId);
+    <p>GeneralImage</p>
+    @Html.TextBoxFor(m => m.GeneralImage);
+    <input type="submit" name="SaveButton" value="Save" />
+}

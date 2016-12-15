@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<CarProject.Models.Post>
+@{
     ViewBag.Title = "Index";
 }
 
@@ -18,22 +19,13 @@
     <a href="" class="menu"><p align="center">Ретро машины</p></a>
     <a href="" class="menu"><p align="center">Самые</p></a>
     <a href="" class="menu"><p align="center">О нас</p></a>
-    <div class="ver1">
+    @foreach(var p in @Model)
+    { 
+    <div align="center">
+        <a href="~/Home/Details/@p.id"><img src="@p.GeneralImage" class="photo"></a>
+        <a class="link1" href="~/Home/Details/@p.id"><p class="text">@p.Title</p></a>
+    </div>
+    }
 
-    </div>
-    <div class="ver2">
-        <a href="page/1.html">
-            <img src="img/Audi-rs-8-610x300.jpg" align="right" class="car">
-            <h2 align="center" class="about">Новый Audi RS1 2017 модельного года</h2>
-        </a>
-    </div>
-    <div class="ver3">
-        <a href="page/2.html">
-            <img src="img/SuzukiIgnis-3-610x300.jpg" align="left" class="car">
-            <h2 align="center" class="about">Обновленный хэтчбек Suzuki Ignis 2017 года</h2>
-        </a>
-    </div>
-
-    </div>
 </body>
 </html>

@@ -7,28 +7,26 @@ using System.Web.Mvc;
 
 namespace CarProject.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
         //
-        // GET: /Home/
+        // GET: /Admin/
 
         public ActionResult Index()
         {
-            List<Post> postsList = Post.GetPosts(null,2);
-            return View(postsList);
+            return View();
         }
 
         //
-        // GET: /Home/Details/5
+        // GET: /Admin/Details/5
 
         public ActionResult Details(int id)
         {
-            Post post = Post.GetPosts(id,null).FirstOrDefault();
-            return View(post);
+            return View();
         }
 
         //
-        // GET: /Home/Create
+        // GET: /Admin/Create
 
         public ActionResult Create()
         {
@@ -36,16 +34,23 @@ namespace CarProject.Controllers
         }
 
         //
-        // POST: /Home/Create
+        // POST: /Admin/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Post post)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (post != null)
+                {
+                    post.SavePost();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
@@ -54,7 +59,7 @@ namespace CarProject.Controllers
         }
 
         //
-        // GET: /Home/Edit/5
+        // GET: /Admin/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -62,7 +67,7 @@ namespace CarProject.Controllers
         }
 
         //
-        // POST: /Home/Edit/5
+        // POST: /Admin/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -80,7 +85,7 @@ namespace CarProject.Controllers
         }
 
         //
-        // GET: /Home/Delete/5
+        // GET: /Admin/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -88,7 +93,7 @@ namespace CarProject.Controllers
         }
 
         //
-        // POST: /Home/Delete/5
+        // POST: /Admin/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
