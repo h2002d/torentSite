@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div align="left">
+        <a href="index.html"><img src="~/images/icon.png" class="logo"></a>
+    </div>
+    <div align="right">
+        <a href="index.html"><img src="~/images/vk.png" class="socialIcons"></a>
+        <a href="https://web.facebook.com/Shoppoint-1812839695645145/" target="_blank"><img src="~/images/fb.png" class="socialIcons"></a>
+        <a href="index.html"><img src="~/images/inst.png" class="socialIcons"></a>
+    </div> 
+    <ul class="topMenu">
+        <li class="menuItem"><a href="#home">Գլխավոր</a></li>
+        <li class="menuItem"><a href="#news">Նորություններ</a></li>
+        <li class="menuItem"><a href="#contact">Հետաքրքիր բաներ</a></li>
+        <li class="menuItem"><a href="#contact">Հետաքրքիր տեխնիկա</a></li>
+        <li class="menuItem"><a href="#contact">Նվերներ</a></li>
+        <li class="menuItem"><a href="#contact">Կոնտակտներ</a></li>
+    </ul>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,31 +1,84 @@
 ﻿@model List<CarProject.Models.Post>
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Home/_LayoutPage.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
-    <meta charset="utf-8">
-    <title>Aboutcar</title>
-</head>
-<body>
-    <a href=""><img class="logo" src="img/Logomakr_2izzap.png" align="left"></a>
-    <a href=""><p class="aboutcar">Aboutcar</p></a>
-    <a href="index.html" class="menu"><p align="center">Новые машины</p></a>
-    <a href="page/marks.html" class="menu"><p align="center">Марки</p></a>
-    <a href="" class="menu"><p align="center">Обзоры</p></a>
-    <a href="" class="menu"><p align="center">Ретро машины</p></a>
-    <a href="" class="menu"><p align="center">Самые</p></a>
-    <a href="" class="menu"><p align="center">О нас</p></a>
-    @foreach(var p in @Model)
-    { 
-    <div align="center">
-        <a href="~/Home/Details/@p.id"><img src="@p.GeneralImage" class="photo"></a>
-        <a class="link1" href="~/Home/Details/@p.id"><p class="text">@p.Title</p></a>
+
+   
+    <script type="text/javascript" src="../script/jquery.waterwheelCarousel.js"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var carousel = $("#carousel").waterwheelCarousel({
+            flankingItems: 3,
+            movingToCenter: function ($item) {
+                $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movedToCenter: function ($item) {
+                $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movingFromCenter: function ($item) {
+                $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+            },
+            movedFromCenter: function ($item) {
+                $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+            },
+            clickedCenter: function ($item) {
+                $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+            }
+        });
+
+        $('#prev').bind('click', function () {
+            carousel.prev();
+            return false
+        });
+
+        $('#next').bind('click', function () {
+            carousel.next();
+            return false;
+        });
+
+        $('#reload').bind('click', function () {
+            newOptions = eval("(" + $('#newoptions').val() + ")");
+            carousel.reload(newOptions);
+            return false;
+        });
+
+    });
+    </script>
+    
+   
+    <!--slider-->
+@*<div align="center">
+    <div id="carousel">
+        <a href="page/fidgetcube1.html"><img src="~/images/1.jpg" class="img-" id="item-1" /></a>
+        <a href="page/led2.html"><img src="images/2.jpg" class="img-" id="item-2" /></a>
+        <a href="page/fan3.html"><img src="images/3.jpg" class="img-" id="item-3" /></a>
+        <a href="page/fan4.html"><img src="images/4.jpg" class="img-" id="item-4" /></a>
+        <a href="page/time5.html"><img src="images/5.jpg" class="img-" id="item-5" /></a>
+        <a href="page/time6.html"><img src="images/6.jpg" class="img-" id="item-6" /></a>
+        <a href="page/led12.html"><img src="images/12.jpg" class="img-" id="item-7" /></a>
+        <a href="page/lens13.html"><img src="images/13.jpg" class="img-" id="item-8" /></a>
     </div>
-    }
+    <br>
+</div>*@
+<!--slider pag-->
+   
+    <h2 align="center">Նորույթներ</h2>
+     @foreach (var p in @Model)
+        {
+            <div class="productContent">
+                <a href="~/Home/Details/@p.id"><img src="@p.GeneralImage" class="photo"></a>
+                <a class="itemLink" href="~/Home/Details/@p.id"><p class="text">@p.Title</p></a>
+            </div>
+        }
+           
+ 
+
 
 </body>
 </html>

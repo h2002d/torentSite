@@ -5,37 +5,29 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CarProject.Controllers
+namespace ShopPointAdmin.Controllers
 {
     public class AdminController : Controller
     {
         //
-        // GET: /Admin/
+        // GET: /Home/
 
         public ActionResult Index()
         {
-            return View();
+            
+            List<Post> postsList = Post.GetPosts(null, 2);
+            return View(postsList);
+        
         }
-
-        //
-        // GET: /Admin/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
-        // GET: /Admin/Create
 
         public ActionResult Create()
         {
             return View();
         }
-
-        //
-        // POST: /Admin/Create
-
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Create(Post post)
         {
@@ -57,51 +49,13 @@ namespace CarProject.Controllers
                 return View();
             }
         }
-
-        //
-        // GET: /Admin/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Admin/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /Admin/Delete/5
-
         public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Admin/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                Post.DeletePost(id);
                 return RedirectToAction("Index");
             }
             catch
@@ -109,5 +63,6 @@ namespace CarProject.Controllers
                 return View();
             }
         }
+
     }
 }

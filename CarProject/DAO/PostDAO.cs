@@ -46,6 +46,7 @@ namespace CarProject.DAO
                             post.DateAdded = Convert.ToDateTime(rdr["DateAdded"]);
                             post.SecondaryImageId = Convert.ToInt32(rdr["SecondaryImageId"]);
                             post.CategoryId = Convert.ToInt32(rdr["CategoryId"]);
+                            post.Quantity = Convert.ToInt32(rdr["Quantity"]);
                             post.Title = rdr["Title"].ToString();
                             postList.Add(post);
                         }
@@ -80,6 +81,8 @@ namespace CarProject.DAO
                         }
                         command.Parameters.AddWithValue("@PostContent", newPost.PostContent);
                         command.Parameters.AddWithValue("@GeneralImage", newPost.GeneralImage);
+
+                        command.Parameters.AddWithValue("@Quantity", newPost.Quantity);
                         command.Parameters.AddWithValue("@CategoryId", newPost.CategoryId);
                         command.Parameters.AddWithValue("@Title", newPost.Title);
                         command.ExecuteNonQuery();
@@ -94,5 +97,28 @@ namespace CarProject.DAO
             }
         }
 
+
+        public static bool deletePost(int postId)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("DeletePost", sqlConnection))
+                {
+                    try
+                    {
+                        sqlConnection.Open();
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@PostId", postId);
+                       command.ExecuteNonQuery();
+
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    return false;
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,188 @@
+﻿body{
+	font-family:Arial;
+    font-size:12px;
+    background:white;
+}
+.productContent{ display: inline-block;
+                border:1px solid #43A047;
+	width: 30%;
+  height: 302px;
+	margin-top: 20px;
+  background-color:#43A047;
+    }
+.photo{
+	width: 100%;
+	height: 300px;
+}
+  #row  {
+    display: table-row;
+    }
+
+  #left, #right, #middle {
+    display: table-cell;
+    }
+  .logo {
+      margin-top:55px;
+	    width: 370px;
+    height: 300px;
+    }
+    .socialIcons   {
+      	width: 40px;
+      	height:40px;
+    }
+    .topMenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+     background-color: rgba(7, 7, 7, 0.70);
+}
+
+.menuItem {
+    float: left;
+}
+.menuItem :hover
+{
+    background-color: rgba(7, 7, 7, 0.90);
+}
+.menuItem a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+}
+.img-0{
+  width: 30%;
+  height: 270px;
+  margin-left: 20px;
+}
+.header{
+  border: solid #43A047;
+  background-color: #43A047;
+  height: 276px;
+}
+.block_3{
+	border:1px solid #43A047;
+	width: 30%;
+  height: 302px;
+	margin-top: 20px;
+  background-color:#43A047;
+
+}
+
+#carousel {
+        width:960px;
+        border:1px solid white;
+        height:300px;
+        position:relative;
+        clear:both;
+        overflow:hidden;
+        background:#FFF;
+      }
+      #carousel img {
+        visibility:hidden; /* hide images until carousel can handle them */
+        cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+      }
+.img-{
+	width: 30%;
+	height: 300px;
+    }
+.img-1{
+	width: 100%;
+	height: 300px;
+}
+.about_{
+	margin-left: 500px;
+	margin-top: -400px;
+}
+.about{
+font-family:Arial;
+font-weight: bold;
+font-size: 16px;
+}
+.about_2{
+	font-size: 16px;
+	color: red;
+	font-family: Arial;
+	font-weight: bold;
+}
+.shop_{
+	margin-left: 450px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+    z-index: 90000000;
+    color:white;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.information1{
+  color: white;
+  font-size: 13px;
+}
+.button1 {
+  
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  font-family: Arial;
+  font-weight: bold;
+  background-color: #1976D2;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  width: 15%;
+  height: 50px;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 13px;
+}
+.button1:hover {background-color: #0D47A1}
+
+.button1:active {
+  background-color: #0D47A1;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.shop {
+    color: white;
+    margin-top: -15px;
+}
+.information{
+  width: 50%;
+}

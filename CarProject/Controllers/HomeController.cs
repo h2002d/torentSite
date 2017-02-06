@@ -24,7 +24,8 @@ namespace CarProject.Controllers
         public ActionResult Details(int id)
         {
             Post post = Post.GetPosts(id,null).FirstOrDefault();
-            return View(post);
+            ViewBag.Post = post;
+            return View();
         }
 
         //
@@ -103,6 +104,11 @@ namespace CarProject.Controllers
             {
                 return View();
             }
+        }
+        [HttpPost]
+        public bool MakeOrder(Order model)
+        {
+            return model.SaveOrder();
         }
     }
 }

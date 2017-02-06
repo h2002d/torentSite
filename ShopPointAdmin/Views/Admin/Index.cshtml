@@ -34,7 +34,7 @@
                 $('.deletePost').click(function () {
                     var str=$(this).closest('.productContent').children('.itemLink').attr('href');
                     var res = str.replace("Details", "Delete");
-               
+
                     $.ajax({
                     type: 'POST',
                     url: res,

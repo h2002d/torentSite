@@ -1,9 +1,85 @@
-﻿@model CarProject.Models.Post
+﻿@model CarProject.Models.Order
 
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = ViewBag.Post.Title;
+    Layout = "~/Views/Home/_LayoutPage.cshtml";
 }
 
-<h2>@Model.Title</h2>
-<img src="@Model.GeneralImage" />
-<p>@Model.PostContent</p>
+<h2>@ViewBag.Post.Title</h2>
+<img src="@ViewBag.Post.GeneralImage" />
+
+@*@using (@Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
+{
+    <p>Phone</p>
+    @Html.TextAreaFor(m => m.Phone, new { @class = "form-control" });
+    <p>Address</p>
+    @Html.TextBoxFor(m => m.Address, new {  @class = "form-control" });
+  
+    @Html.HiddenFor(m => m.ItemId, new { @Value=ViewBag.Post.id});
+    @Html.HiddenFor(m => m.StatusId, new { @Value = "0" });
+ 
+    <p>Latitude</p>
+    @Html.TextBoxFor(m => m.Latitude);
+    <p>Longitude</p>
+    @Html.TextBoxFor(m => m.Longitude);
+
+
+    <input type="submit" name="SaveButton" value="Save" />
+}*@
+
+<div class="about_">
+    <pre class="about">
+    @ViewBag.Post.PostContent
+  </pre>
+</div>
+<p align="center" class="about_2">Առկա է @ViewBag.Post.Quantity</p>
+
+
+
+<div class="shop_">
+    <div id="mySidenav" class="sidenav">
+        <h1 class="shop">Իրը ձեռք բերելու համար զանգահարել</h1>
+        <h1 class="shop">094828688</h1>
+        <h1 class="shop">Կամ</h1>
+        <h1 class="shop">Գնեք օնլայն</h1>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        @using (@Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
+        {
+            <p>Phone</p>
+            @Html.TextAreaFor(m => m.Phone, new { @class = "form-control" });
+            <p>Address</p>
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" });
+
+            @Html.HiddenFor(m => m.ItemId, new { @Value = ViewBag.Post.id });
+            @Html.HiddenFor(m => m.StatusId, new { @Value = "0" });
+
+            @Html.HiddenFor(m => m.Latitude, new { @Value = "0" });
+            @Html.HiddenFor(m => m.Longitude, new { @Value = "0" });
+
+            <p>Quantity</p>
+            @Html.TextBoxFor(m => m.Quantity);
+            <br/>
+            
+
+    <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
+        }
+        <div align="center">
+            
+        </div>
+        <div align="center">
+           
+        </div>
+        </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">Գնել</span>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+

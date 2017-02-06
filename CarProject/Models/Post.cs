@@ -15,7 +15,7 @@ namespace CarProject.Models
         public int SecondaryImageId { get; set; }
         public DateTime DateAdded { get; set; }
         public int CategoryId { get; set; }
-
+        public int Quantity { get; set; }
         public Post GetPost(int id)
         {
             //GetsPostBy ID
@@ -28,9 +28,9 @@ namespace CarProject.Models
             return postId != null ? DAO.PostDAO.getPosts(postId,null) : DAO.PostDAO.getPosts(null, CategoryId);
         }
 
-        public bool DeletePost(int id)
+        public static bool DeletePost(int id)
         {
-            return false;
+            return DAO.PostDAO.deletePost(id);
         }
 
         public Post EditPost(int id)
