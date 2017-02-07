@@ -47,6 +47,8 @@ namespace CarProject.DAO
                             post.SecondaryImageId = Convert.ToInt32(rdr["SecondaryImageId"]);
                             post.CategoryId = Convert.ToInt32(rdr["CategoryId"]);
                             post.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                            post.Price = Convert.ToDecimal(rdr["Price"]);
+
                             post.Title = rdr["Title"].ToString();
                             postList.Add(post);
                         }
@@ -81,7 +83,7 @@ namespace CarProject.DAO
                         }
                         command.Parameters.AddWithValue("@PostContent", newPost.PostContent);
                         command.Parameters.AddWithValue("@GeneralImage", newPost.GeneralImage);
-
+                        command.Parameters.AddWithValue("@Price", newPost.Price);
                         command.Parameters.AddWithValue("@Quantity", newPost.Quantity);
                         command.Parameters.AddWithValue("@CategoryId", newPost.CategoryId);
                         command.Parameters.AddWithValue("@Title", newPost.Title);

@@ -15,6 +15,7 @@ namespace CarProject.Models
         public int SecondaryImageId { get; set; }
         public DateTime DateAdded { get; set; }
         public int CategoryId { get; set; }
+        public Decimal Price { get; set; }
         public int Quantity { get; set; }
         public Post GetPost(int id)
         {

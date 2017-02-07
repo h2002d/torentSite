@@ -12,9 +12,11 @@ namespace CarProject.Controllers
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            List<Post> postsList = Post.GetPosts(null,2);
+            Category category = Category.GetCategory(id);
+            ViewBag.Title = category.CategoryName;
+            List<Post> postsList = Post.GetPosts(null, id);
             return View(postsList);
         }
 
@@ -25,6 +27,9 @@ namespace CarProject.Controllers
         {
             Post post = Post.GetPosts(id,null).FirstOrDefault();
             ViewBag.Post = post;
+
+            ViewBag.Result = TempData["Result"];
+            TempData["Result"] = null;
             return View();
         }
 
@@ -106,9 +111,28 @@ namespace CarProject.Controllers
             }
         }
         [HttpPost]
-        public bool MakeOrder(Order model)
+        public ActionResult MakeOrder(Order model)
         {
-            return model.SaveOrder();
+             try{
+                model.SaveOrder();
+
+              TempData["Result"] = "Ձեր պատվերը հաջողությամբ կատարվել է:";
+                return RedirectToAction("Details", new
+                {
+                    id = model.ItemId
+                    
+                });
+                
+             }
+            catch(Exception e )
+             {
+                 TempData["Result"] = "Ձեր պատվերը չի կատարվել տեխնիկական խոտանի պատճառով";
+                  return RedirectToAction("Details", new
+                  {
+                      id = model.ItemId
+
+                  });
+             }
         }
     }
 }

@@ -12,10 +12,11 @@ namespace ShopPointAdmin.Controllers
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            
-            List<Post> postsList = Post.GetPosts(null, 2);
+            Category category = Category.GetCategory(id);
+            ViewBag.Title = category.CategoryName;
+            List<Post> postsList = Post.GetPosts(null, id);
             return View(postsList);
         
         }
@@ -44,7 +45,7 @@ namespace ShopPointAdmin.Controllers
                     return View();
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

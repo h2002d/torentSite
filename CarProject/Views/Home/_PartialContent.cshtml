@@ -1,0 +1,7 @@
+﻿@foreach (var p in @Model)
+{
+    <div class="productContent">
+        <a href="~/Home/Details/@p.id"><img src="@p.GeneralImage" class="photo"></a>
+        <a class="itemLink" href="~/Home/Details/@p.id"><p class="text">@p.Title</p></a>
+    </div>
+}

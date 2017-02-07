@@ -6,7 +6,7 @@
 }
 
 <h2>@ViewBag.Post.Title</h2>
-<img src="@ViewBag.Post.GeneralImage" />
+<img height="350" width="=350" src="@ViewBag.Post.GeneralImage" />
 
 @*@using (@Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
 {
@@ -32,7 +32,9 @@
     @ViewBag.Post.PostContent
   </pre>
 </div>
+<p align="center" class="about_2">Գինը @ViewBag.Post.Price</p>
 <p align="center" class="about_2">Առկա է @ViewBag.Post.Quantity</p>
+<p align="center" class="about_2"> @ViewBag.Result</p>
 
 
 
@@ -63,6 +65,7 @@
 
     <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
         }
+
         <div align="center">
             
         </div>

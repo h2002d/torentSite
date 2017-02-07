@@ -1,16 +1,10 @@
 ﻿@model List<CarProject.Models.Post>
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Home/_LayoutPage.cshtml";
 }
 
 
    
-    <script type="text/javascript" src="../script/jquery.waterwheelCarousel.js"></script>
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
         var carousel = $("#carousel").waterwheelCarousel({
@@ -68,7 +62,7 @@
 </div>*@
 <!--slider pag-->
    
-    <h2 align="center">Նորույթներ</h2>
+    <h2 align="center">@ViewBag.Title</h2>
      @foreach (var p in @Model)
         {
             <div class="productContent">

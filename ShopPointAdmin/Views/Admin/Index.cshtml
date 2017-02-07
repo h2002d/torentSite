@@ -1,18 +1,18 @@
 ﻿@model List<CarProject.Models.Post>
 @{
-    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/_LayoutPage.cshtml";
 }
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="~/style.css">
     <meta charset="utf-8">
-    <title>Aboutcar</title>
+    <title>@ViewBag.Title</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 </head>
 <body>
-    <h2>AdminPage</h2>
+   
 
     <a href="~/Admin/Create">Create New Post</a>
 
