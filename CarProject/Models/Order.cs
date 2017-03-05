@@ -12,6 +12,7 @@ namespace CarProject.Models
         public int Id { get; set; }
         public int ItemId { get; set; }
         public int StatusId { get; set; }
+        public string StatusName { get; set; }
         public string Phone { get; set; }
         public string Status { get; set; }
         public string Address { get; set; }
@@ -20,13 +21,17 @@ namespace CarProject.Models
         public DateTime OrderDate { get; set; }
         public int Quantity { get; set; }
 
-        public static Order GetOrder()
+        public static List<Order> GetOrder(int? id)
         {
-            return null;
+            return OrderDAO.geOrders(id);
         }
         public bool SaveOrder()
         {
             return OrderDAO.saveOrder(this);
+        }
+        public static bool SaveOrderStatus(int orderId,int statusId)
+        {
+            return OrderDAO.setOrderStatus(orderId,statusId);
         }
 
     }

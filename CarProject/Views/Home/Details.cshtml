@@ -6,7 +6,7 @@
 }
 
 <h2>@ViewBag.Post.Title</h2>
-<img height="350" width="=350" src="@ViewBag.Post.GeneralImage" />
+<img height="350" width="350" src="@ViewBag.Post.GeneralImage" />
 
 @*@using (@Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
 {
@@ -61,9 +61,7 @@
             <p>Quantity</p>
             @Html.TextBoxFor(m => m.Quantity);
             <br/>
-            
-
-    <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
+                <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
         }
 
         <div align="center">
@@ -75,7 +73,9 @@
         </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">Գնել</span>
 </div>
-
+<div class="rating" align="left">
+    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "100%";

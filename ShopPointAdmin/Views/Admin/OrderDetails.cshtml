@@ -1,0 +1,55 @@
+﻿@model CarProject.Models.Status
+
+@{
+    
+    Layout = "~/Views/Admin/_LayoutPage.cshtml";
+}
+
+<h2>Պատվեր #@ViewBag.Model.Id</h2>
+<p>Ապրանքի համարը: @ViewBag.Model.ItemId</p>
+<p>Հեռախոսահամարը: @ViewBag.Model.Phone</p>
+<p>Հասցե: @ViewBag.Model.Address</p>
+<p>Քանակը: @ViewBag.Model.Quantity</p>
+<p>Կարգավիճակը: @ViewBag.Model.StatusName</p>
+
+@* State selection dropdown *@
+<div class="form-group">
+    @Html.LabelFor(m => m.State)
+    @Html.DropDownListFor(m => m.State, // 1. Store selected value in Model.State;
+            // when page is rendered after postback,
+            // take selected value from Model.State.
+
+                                              // 2. Take list of values from Model.States
+                                              Model.States,
+
+                                              // 3. Text for the first 'default' option
+                                              "- Please select a state -",
+
+                                              //4. A class name to assign to <select> tag
+                                              new { @id = "statusDropdown" })
+    </div>
+    <input type="button" id="Statuschange" value="Ընտրել" />
+<script type="text/javascript" >
+$(function () {
+    $("#Statuschange").on('click', function (e) {
+       
+        alert();
+        var data = JSON.stringify({ 
+            'orderId': @ViewBag.Model.Id,
+            'statusId':$("#statusDropdown").val()
+        });
+
+        $.ajax({
+            type: "POST",
+            url: @Url.Action("SaveOrderStatus","Admin"),
+            data: data,
+            success: function(e){
+                alert(e)
+            },
+            contentType: 'application/json'
+        });
+
+        
+    })
+})
+    </script>

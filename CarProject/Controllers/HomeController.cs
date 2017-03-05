@@ -66,7 +66,10 @@ namespace CarProject.Controllers
         {
             return View();
         }
-
+        public ActionResult About()
+        {
+            return View();
+        }
         //
         // POST: /Home/Edit/5
 

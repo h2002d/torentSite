@@ -17,6 +17,11 @@ namespace CarProject.Models
         public int CategoryId { get; set; }
         public Decimal Price { get; set; }
         public int Quantity { get; set; }
+
+        public Post()
+        {
+
+        }
         public Post GetPost(int id)
         {
             //GetsPostBy ID

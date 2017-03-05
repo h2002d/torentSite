@@ -13,7 +13,7 @@
     @Html.TextAreaFor(m => m.PostContent);
     <p>Արժեքը</p>
     @Html.TextAreaFor(m => m.Price);
-
+                                   @Html.HiddenFor(m => m.id);
     <p>Կատեգորիա</p>
     @Html.TextBoxFor(m => m.CategoryId);
     <p>Նկարը</p>

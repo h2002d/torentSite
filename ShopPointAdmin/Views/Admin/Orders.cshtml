@@ -1,0 +1,17 @@
+﻿@model List<CarProject.Models.Order>
+
+@{
+    Layout = "~/Views/Admin/_LayoutPage.cshtml";
+}
+
+<h2>Orders</h2>
+
+@foreach (var p in @Model)
+{
+    <div class="productContent">
+        <a href="~/Admin/OrderDetails/@p.Id">Պատվեր #@p.Id</a>
+        <a class="itemLink" href="~/Admin/OrderDetails/@p.Id"><p class="text">@p.OrderDate</p>
+        
+            <p class="text">@p.StatusName</p></a>
+    </div>
+}
