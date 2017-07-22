@@ -1,32 +1,31 @@
 ﻿@model CarProject.Models.Order
 @{
     ViewBag.Title = ViewBag.Post.Title;
-    Layout = "~/Views/Home/_LayoutPage.cshtml";
+    Layout = "~/Views/Home/_LayoutPag.Mobile.cshtml";
 }
 <hr class="contentDivider" />
 <h2>@ViewBag.Post.Title</h2>
 
-<img height="350" width="350" style=" border: 1px solid rgba(63, 191, 63, 0.4);" src="@ViewBag.Post.GeneralImage" />
+<img style=" border: 1px solid rgba(63, 191, 63, 0.4); width:90%; height:auto;" src="@ViewBag.Post.GeneralImage" />
 
 
-<div class="about_">
-    <pre class="about">
-    @ViewBag.Post.PostContent
-  </pre>
-</div>
+
 <p align="center" class="about_2">Գինը @ViewBag.Post.Price</p>
 <p align="center" class="about_2">Առկա է @ViewBag.Post.Quantity</p>
 <p align="center" class="about_2"> @ViewBag.Result</p>
-
-
-
+<div align="center" class="aboutMobile">
+    
+    @ViewBag.Post.PostContent
+  
+</div>
+@*<span style="font-size:30px;cursor:pointer" onclick="openNavOrder()">Գնել</span>*@
 <div class="shop_">
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenavMobile" class="sidenavMobile">
         <h1 class="shop">Իրը ձեռք բերելու համար զանգահարել</h1>
         <h1 class="shop">094828688</h1>
         <h1 class="shop">Կամ</h1>
         <h1 class="shop">Գնեք օնլայն</h1>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavOrder()">&times;</a>
         @using (@Html.BeginForm("MakeOrder", "Home", FormMethod.Post))
         {
             <p>Ձեր հեռախոսահամարը</p>
@@ -42,20 +41,20 @@
             @Html.HiddenFor(m => m.Quantity, new { @Value = "1" });
 
             @*<p>Քանակը</p>
-            @Html.TextBoxFor(m => m.Quantity, new { @class = "orderArea" });*@
-            <br/>
-                <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
+                @Html.TextBoxFor(m => m.Quantity, new { @class = "orderArea" });*@
+            <br />
+            <input type="submit" name="SaveButton" value="Պատվիրել" class="button1" />
         }
-        </div>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">Գնել</span>
+    </div>
+    
 </div>
 <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "100%";
+    function openNavOrder() {
+        document.getElementById("mySidenavMobile").style.width = "100%";
     }
 
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+    function closeNavOrder() {
+        document.getElementById("mySidenavMobile").style.width = "0";
     }
 </script>
 

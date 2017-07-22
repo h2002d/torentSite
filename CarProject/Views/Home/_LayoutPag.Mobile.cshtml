@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <link rel="stylesheet" type="text/css" href="~/styleMobile.css">
+</head>
+<body>
+    <div class="menuFixed">
+        <span onclick="openNav()"><img src="~/images/menu-icon.png" class="menuIcon"></span>
+        
+            <div class="logo2"><img src="~/images/icon.png" class="logoMobile"></div>
+
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="~/">Գլխավոր</a>
+        <a href="~/Home/Index/1">Նորություններ</a>
+        <a href="~/Home/Index/3">Ժամեր</a>
+        <a href="~/Home/Index/5">Նվերներ</a>
+       <a href="~/Home/Index/4">Թոփ 10</a>
+        <a href="~/Home/About/">Մեր մասին</a>
+    </div>
+
+    <!-- Use any element to open the sidenav -->
+   
+    <div class="contentMobile">
+        @RenderBody()
+    </div>
+</body>
+<script type="text/javascript">
+    (function () {
+        var element = document.getElementsByTagName("center"), index;
+
+        for (index = element.length - 1; index >= 0; index--) {
+            element[index].parentNode.removeChild(element[index]);
+        }
+
+    })();
+    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
+</html>

@@ -17,7 +17,7 @@ namespace CarProject.Models
         public int CategoryId { get; set; }
         public Decimal Price { get; set; }
         public int Quantity { get; set; }
-
+        public List<string> SecondaryImageList { get; set; }
         public Post()
         {
 

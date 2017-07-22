@@ -1,0 +1,14 @@
+﻿@model List<CarProject.Models.Post>
+    @{
+        Layout = "~/Views/Home/_LayoutPag.Mobile.cshtml";
+    }
+
+    <h2 align="center">@ViewBag.Title</h2>
+    <hr class="contentDivider" />
+    @foreach (var p in @Model)
+    {
+        <div align="center" class="productContentMobile">
+            <a href="~/Home/Details/@p.id"><img src="@p.GeneralImage" height="50%" width="90%" class="photoMobile"></a>
+            <a class="itemLink" href="~/Home/Details/@p.id"><p class="text" align="center">@p.Title</p></a>
+        </div>
+    }

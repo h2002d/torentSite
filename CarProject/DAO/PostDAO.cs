@@ -88,7 +88,10 @@ namespace CarProject.DAO
                         command.Parameters.AddWithValue("@CategoryId", newPost.CategoryId);
                         command.Parameters.AddWithValue("@Title", newPost.Title);
                         command.ExecuteNonQuery();
+                        foreach(var p in newPost.SecondaryImageList)
+                        {
 
+                        }
                         return true;
                     }
                     catch (Exception ex)
